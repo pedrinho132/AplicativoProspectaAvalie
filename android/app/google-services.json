@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "784117731234",
+    "firebase_url": "https://prospectarelease-default-rtdb.firebaseio.com",
+    "project_id": "prospectarelease",
+    "storage_bucket": "prospectarelease.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784117731234:android:82f309eeb4fe1f58a4acfb",
+        "android_client_info": {
+          "package_name": "com.releaseprospecta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784117731234-av8a3kl40ive4tb1gkhpsqo9koq0aiur.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.releaseprospecta",
+            "certificate_hash": "2226361ed115a609f438190b88ca6e7ca1f6ef09"
+          }
+        },
+        {
+          "client_id": "784117731234-e9mhn978ssnr1749vddvl39d1l9da9kf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.releaseprospecta",
+            "certificate_hash": "ad97f4c8d1e4ecab058b32fe8161e11ecbd4c3f2"
+          }
+        },
+        {
+          "client_id": "784117731234-mfgnihau349jqacq8mbslopsma38vqpg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtRFow3WHZB1ybFgvipny-PPaBGFwG7fs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "784117731234-mfgnihau349jqacq8mbslopsma38vqpg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

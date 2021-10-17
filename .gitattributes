@@ -1,0 +1,4 @@
+android/java_pid11320.hprof filter=lfs diff=lfs merge=lfs -text
+android/java_pid11752.hprof filter=lfs diff=lfs merge=lfs -text
+android/java_pid1284.hprof filter=lfs diff=lfs merge=lfs -text
+android/java_pid1568.hprof filter=lfs diff=lfs merge=lfs -text

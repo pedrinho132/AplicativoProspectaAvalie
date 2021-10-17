@@ -1,0 +1,343 @@
+import 'react-native-gesture-handler';
+import  React, { Component,useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './Components/reducers/index';
+import thunk from 'redux-thunk'
+import { GoogleSignin } from '@react-native-community/google-signin';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+GoogleSignin.configure({
+  webClientId: "717519053276-umpfhqo3ed9vj6hbktn1578k5edu67bp.apps.googleusercontent.com",
+});
+
+
+import Cadastro from './Components/Stacks/Cadastro/Cadastro';
+import PerfilProfissional from './Components/Stacks/PerfilProfissional/PerfilProfissional';
+import Mapa from './Components/Stacks/Mapa/Mapa';
+import CriarPedido from './Components/Stacks/CriarPedido/CriarPedido'
+import Login from './Components/Stacks/Login/Login';
+import CriarPedido2 from './Components/Stacks/CriarPedido/CriarPedido2';
+import Avaliacoes from './Components/Stacks/Avaliacoes/Avaliacoes';
+import EmAndamento from './Components/Stacks/EmAndamento/EmAndamento';
+import Ganhos from './Components/Stacks/Ganhos/Ganhos';
+import Pedido from './Components/Stacks/Pedido/Pedido';
+import Lance from './Components/Stacks/Pedido/Lance';
+import preloadCadastro from './Components/Stacks/Preload/preloadCadastro';
+import autenticarLogin from './Components/Stacks/Login/autenticarLogin';
+import PerfilCliente from './Components/Stacks/PerfilCliente/perfilCliente';
+import anexarDocumentos from './Components/Stacks/PerfilCliente/anexarDocumentos';
+
+
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+/*
+const firebaseConfig = {
+  apiKey: "AIzaSyDo7HWPFEMI99doiiJ1sbOMp7UMlgjfVEc",
+  authDomain: "prospecta-avalie.firebaseapp.com",
+  databaseURL: "https://prospecta-avalie-default-rtdb.firebaseio.com",
+  projectId: "prospecta-avalie",
+  storageBucket: "prospecta-avalie.appspot.com",
+  messagingSenderId: "482426060954",
+  appId: "1:482426060954:web:cdd3e533ca9be6f0e45f23",
+  measurementId: "G-CZ3P7NQ9L2"
+};
+
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
+
+export { firebase };
+*/
+
+class App extends Component {
+
+  render(){
+
+  return (
+    <Provider store={createStore(reducers, applyMiddleware(thunk))}>
+    <NavigationContainer>
+
+   
+    <Tab.Navigator>
+        <Tab.Screen name="Home" component={PerfilProfissional} />
+        <Tab.Screen name="Settings" component={Login} />
+
+      <Stack.Navigator initialRouteName={'PerfilProfissional'} >
+
+        <Stack.Screen
+         name="Login"
+         component={Login}
+          options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+         <Stack.Screen
+         name="Cadastro"
+         component={Cadastro}
+          options={{
+          title: 'Cadastre-se',
+          headerStyle: {
+            backgroundColor: '#12412a',
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="Mapa"
+         component={Mapa}
+          options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="CriarPedido"
+         component={CriarPedido}
+          options={{
+          title: 'Cadastre-se',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="CriarPedido2"
+         component={CriarPedido2}
+          options={{
+          title: 'Cadastre-se',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="PerfilProfissional"
+         component={PerfilProfissional}
+          options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+
+        <Stack.Screen
+         name="Avaliacoes"
+         component={Avaliacoes}
+         
+          options={{
+          title: 'Definina seu Perfil',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#3d7c5d',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:20,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="EmAndamento"
+         component={EmAndamento}
+         
+          options={{
+          title: 'Definina seu Perfil',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#3d7c5d',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:20,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="Ganhos"
+         component={Ganhos}
+         
+          options={{
+          title: 'Definina seu Perfil',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#3d7c5d',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:20,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="Pedido"
+         component={Pedido}
+          options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} /> 
+
+        <Stack.Screen
+         name="Lance"
+         component={Lance}
+          options={{
+          headerStyle: {
+            backgroundColor: '#1cbc6c',
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />       
+
+<Stack.Screen
+         name="preloadCadastro"
+         component={preloadCadastro}
+          options={{
+          title: 'Cadastre-se',
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="autenticarLogin"
+         component={autenticarLogin}
+          options={{
+          headerShown: false,
+          headerStyle: {
+            backgroundColor: '#202120',
+          
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+
+
+<Stack.Screen
+         name="perfilCliente"
+         component={PerfilCliente}
+          options={{
+            headerShown: false,
+          headerStyle: {
+            backgroundColor: '#12412a',
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+
+<Stack.Screen
+         name="anexarDocumentos"
+         component={anexarDocumentos}
+          options={{
+            headerShown: false,
+          headerStyle: {
+            backgroundColor: '#12412a',
+          },
+          headerTintColor: '#e9ebea',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize:30,
+            
+          },
+        }} />
+        
+  
+       </Stack.Navigator>
+       </Tab.Navigator>
+    </NavigationContainer>
+    </Provider>
+  );
+      }
+}
+
+export default App;
